@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func testButon(_ sender: UIButton) {
+        print("Hi")
     }
 
 }
