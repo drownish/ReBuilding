@@ -1,19 +1,19 @@
 //
-//  ViewController.swift
+//  CalcViewController.swift
 //  ReBuilding
 //
-//  Created by Максим Балахонов on 14.01.18.
+//  Created by Максим Балахонов on 18.01.18.
 //  Copyright © 2018 Максим Балахонов. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalcViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "ПереСтройка"
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,16 +21,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var raschetButton: UIButton!
 
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        if segue.identifier == "menuSegue" {
-        let destinationVC = segue.destination as! MenuViewController
-        destinationVC.navigationItem.title = raschetButton.currentTitle
         // Pass the selected object to the new view controller.
-        }
     }
+    */
 
 }
-
