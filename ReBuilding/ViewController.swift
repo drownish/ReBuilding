@@ -20,8 +20,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBOutlet weak var raschetButton: UIButton!
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        let destinationVC = segue.destination as! MenuViewController
+        destinationVC.navigationItem.title = raschetButton.currentTitle
+        // Pass the selected object to the new view controller.
+    }
 
 }
 
