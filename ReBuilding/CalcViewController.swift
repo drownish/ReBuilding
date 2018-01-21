@@ -39,6 +39,16 @@ class CalcViewController: UIViewController {
     }
     
     
+    @IBAction func copyButton(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Скопировано", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+
     
     /*
     // MARK: - Navigation
@@ -51,3 +61,27 @@ class CalcViewController: UIViewController {
     */
 
 }
+
+
+class segueToCalc: UIStoryboardSegue {
+    /*do {
+    let transition = CATransition()
+    transition.duration = 0.5
+    transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+    transition.type = kCATransitionFade
+    self.navigationController?.view.layer.add(transition, forKey: nil)
+    _ = self.navigationController?.popToRootViewController(animated: false)
+    }
+ */
+}
+
+
+
+
+
+
+
+
+
+
+

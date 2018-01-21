@@ -8,8 +8,11 @@
 
 import UIKit
 
+var dataArray: [DataClass] = []
+let rowOfItemsForCalculating = ["Кирпичи", "Клей", "Доски", "Плитка", "Гвозди", "Блоки"]
+
 class DataClass {
 
-    let rowOfItemsForCalculating = ["Кирпичи", "Клей", "Доски", "Плитка", "Гвозди", "Блоки"]
+    
     
 }
