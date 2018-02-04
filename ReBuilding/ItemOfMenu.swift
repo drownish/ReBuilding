@@ -10,5 +10,6 @@ import UIKit
 
 class ItemOfMenu: UICollectionViewCell {
     
+    @IBOutlet weak var buttonImage: UIImageView!
     @IBOutlet weak var buttonLabel: UILabel!
 }

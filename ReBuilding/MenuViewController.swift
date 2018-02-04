@@ -31,13 +31,14 @@ class MenuViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return rowOfItemsForCalculating.count
+        return rowOfClassesForCalculating.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ItemOfMenu
-        cell.buttonLabel.text = rowOfItemsForCalculating[indexPath.row]
-        cell.backgroundColor = UIColor(red: 50/255.0, green: 50/255.0, blue: 50/255.0, alpha: 1.0)
+        cell.buttonLabel.text = rowOfClassesForCalculating[indexPath.row].nameOfItem
+        cell.buttonImage.image = rowOfClassesForCalculating[indexPath.row].imageOfItem
+        //cell.backgroundColor = UIColor(red: 50/255.0, green: 50/255.0, blue: 50/255.0, alpha: 1.0)
     
         return cell
     }
@@ -45,13 +46,13 @@ class MenuViewController: UICollectionViewController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let screenHeight = UIScreen.main.bounds.height
         if screenHeight == 667.0 {
-        return CGSize(width: 101, height: 101)
+        return CGSize(width: 101, height: 140)
         }
         else if screenHeight == 736.0{
-        return CGSize(width: 113, height: 113)
+        return CGSize(width: 113, height: 150)
         }
         else {
-            return CGSize(width: 86, height: 86)
+            return CGSize(width: 86, height: 120)
         }
     }
     
@@ -59,7 +60,10 @@ class MenuViewController: UICollectionViewController {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         let destinationVC = segue.destination as! RaschetViewController
-        destinationVC.navigationItem.title = rowOfItemsForCalculating[(collectionView?.indexPathsForSelectedItems?[0].row)!]
+        destinationVC.navigationItem.title = rowOfClassesForCalculating[(collectionView?.indexPathsForSelectedItems?[0].row)!].nameOfItem
+        let nameWithInc = rowOfClassesForCalculating[(collectionView?.indexPathsForSelectedItems?[0].row)!].nameOfItemWithInc
+        destinationVC.textForTitleLabel =
+        "Расчет \(nameWithInc)"
     }
     
 

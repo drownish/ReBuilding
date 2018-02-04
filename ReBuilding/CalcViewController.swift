@@ -8,6 +8,9 @@
 
 import UIKit
 
+var x: Double = 0
+var y: Double = 0
+
 class CalcViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -31,11 +34,20 @@ class CalcViewController: UIViewController {
 
     @IBOutlet weak var calcDisplay: UILabel!
     
+    var flag = true
 
     @IBAction func numbers(_ sender: UIButton) {
+        if flag == true {
         var textOnDisplay = 0
         textOnDisplay = (textOnDisplay*10) + sender.tag
         calcDisplay.self.text = String(textOnDisplay)
+        flag = false
+        }
+        else {
+            var textOnDisplay = Int(calcDisplay.self.text!)!
+            textOnDisplay = (textOnDisplay*10) + sender.tag
+            calcDisplay.self.text = String(textOnDisplay)
+        }
     }
     
     
@@ -60,6 +72,29 @@ class CalcViewController: UIViewController {
     }
     */
 
+    @IBAction func clearButton(_ sender: UIButton) {
+        flag = true
+        calcDisplay.self.text = String(0)
+    }
+    
+    @IBAction func actions(_ sender: UIButton) {
+        switch sender.tag {
+        case 1001:
+            print("/")
+        case 1002:
+            print("x")
+        case 1003:
+            print("-")
+        case 1004:
+            print("+")
+        case 1005:
+            print("=")
+        default:
+            print("Error")
+        }
+    
+    }
+    
 }
 
 

@@ -10,8 +10,12 @@ import UIKit
 
 class RaschetViewController: UIViewController {
 
+    
+    var textForTitleLabel = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.text = textForTitleLabel
 
         // Do any additional setup after loading the view.
     }
@@ -21,7 +25,8 @@ class RaschetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBOutlet weak var titleLabel: UILabel!
+    
     /*
     // MARK: - Navigation
 
