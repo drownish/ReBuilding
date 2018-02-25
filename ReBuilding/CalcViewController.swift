@@ -33,25 +33,17 @@ class CalcViewController: UIViewController {
     
 
     @IBOutlet weak var calcDisplay: UILabel!
-    
-    var flag = true
 
     @IBAction func numbers(_ sender: UIButton) {
-        if flag == true {
-        var textOnDisplay = 0
-        textOnDisplay = (textOnDisplay*10) + sender.tag
-        calcDisplay.self.text = String(textOnDisplay)
-        flag = false
-        }
-        else {
-            var textOnDisplay = Int(calcDisplay.self.text!)!
-            textOnDisplay = (textOnDisplay*10) + sender.tag
-            calcDisplay.self.text = String(textOnDisplay)
-        }
+        
+        x = Double(sender.tag)
+        calcDisplay.self.text = String(x)
+
     }
     
     
     @IBAction func copyButton(_ sender: UIButton) {
+        
         let alert = UIAlertController(title: "Скопировано", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
@@ -59,6 +51,7 @@ class CalcViewController: UIViewController {
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
+        
     }
 
     
@@ -73,7 +66,6 @@ class CalcViewController: UIViewController {
     */
 
     @IBAction func clearButton(_ sender: UIButton) {
-        flag = true
         calcDisplay.self.text = String(0)
     }
     

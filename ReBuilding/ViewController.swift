@@ -21,6 +21,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func testBut(_ sender: UIButton) {
+        let tableViewController = UITableViewController()
+        tableViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+        tableViewController.preferredContentSize = CGSize(width: 50, height: 50)
+
+        
+        present(tableViewController, animated: true, completion: nil)
+        
+        let popoverPresentationController = tableViewController.popoverPresentationController
+        popoverPresentationController?.sourceView = sender
+        popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.size.width, height: sender.frame.size.height)
+    }
     @IBOutlet weak var raschetButton: UIButton!
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

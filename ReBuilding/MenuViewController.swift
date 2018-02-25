@@ -36,8 +36,8 @@ class MenuViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ItemOfMenu
-        cell.buttonLabel.text = rowOfClassesForCalculating[indexPath.row].nameOfItem
-        cell.buttonImage.image = rowOfClassesForCalculating[indexPath.row].imageOfItem
+        cell.buttonLabel.text = rowOfClassesForCalculating[indexPath.row]?.nameOfItem
+        cell.buttonImage.image = rowOfClassesForCalculating[indexPath.row]?.imageOfItem
         //cell.backgroundColor = UIColor(red: 50/255.0, green: 50/255.0, blue: 50/255.0, alpha: 1.0)
     
         return cell
@@ -57,13 +57,13 @@ class MenuViewController: UICollectionViewController {
     }
     
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         let destinationVC = segue.destination as! RaschetViewController
-        destinationVC.navigationItem.title = rowOfClassesForCalculating[(collectionView?.indexPathsForSelectedItems?[0].row)!].nameOfItem
-        let nameWithInc = rowOfClassesForCalculating[(collectionView?.indexPathsForSelectedItems?[0].row)!].nameOfItemWithInc
-        destinationVC.textForTitleLabel =
-        "Расчет \(nameWithInc)"
+        destinationVC.navigationItem.title = rowOfClassesForCalculating[(collectionView?.indexPathsForSelectedItems?[0].row)!]?.nameOfItem
+        let nameWithInc = rowOfClassesForCalculating[(collectionView?.indexPathsForSelectedItems?[0].row)!]?.nameOfItemWithInc
+        destinationVC.textForTitleLabel = "Расчет \(nameWithInc!)"
+        destinationVC.dataForRaschet = rowOfClassesForCalculating[(collectionView?.indexPathsForSelectedItems![0].row)!]?.arrayForRaschet as! [Int : raschetClass]
     }
     
 
